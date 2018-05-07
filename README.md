@@ -2,7 +2,7 @@
 
 # Aylinux Plymouth Tema Ayarlama
 Aylinux Plymouth Tema Ayarlama Uygulaması
-Aylinux ve Arch tabanlı uygulamalarda çalışır.
+Aylinux ve Arch tabanlı dağıtımlarda çalışır.
 Diğer linux dağıtımları için kodlarla oynamak gerekir.
 
 
