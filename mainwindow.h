@@ -26,8 +26,6 @@ private slots:
 
     void on_listWidget_activated(const QModelIndex &index);
 
-    void on_listelebuton_clicked(bool checked);
-
     void on_commandLinkButton_2_clicked();
 
     void on_comboBox_currentTextChanged(const QString);
