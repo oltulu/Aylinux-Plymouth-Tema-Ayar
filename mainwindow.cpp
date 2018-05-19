@@ -22,7 +22,7 @@ MainWindow::MainWindow(QWidget *parent) :
     temalar = yolum.entryList();
     QListWidgetItem *deneme=new QListWidgetItem();
     deneme->setIcon(QIcon("/usr/share/plymouth/aylinux.png"));
-    ui->listWidget->addItems(deneme);
+//    ui->listWidget->addItems(deneme);
 
     // Add an item to list widget.
     //    QListWidgetItem *item = new QListWidgetItem();
