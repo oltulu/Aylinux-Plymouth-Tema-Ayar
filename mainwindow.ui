@@ -140,7 +140,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>/usr/share/aylinux-plymouth/bilgi.png</pixmap>
+     <pixmap>/usr/share/aylinux-plymouth/resimler/bilgi.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
