@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=Aylinux-Gunes
+Description=This theme is a fork of "Ubuntu Sunrise by dinin", a fork of "Space Sunrise by Osku" Schmidt" plymouth theme
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/Aylinux-Gunes/images
+ScriptFile=/usr/share/plymouth/themes/Aylinux-Gunes/Aylinux-Gunes.script

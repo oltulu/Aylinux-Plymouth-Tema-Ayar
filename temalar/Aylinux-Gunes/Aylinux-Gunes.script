@@ -1,0 +1,172 @@
+win_width			         	= Window.GetWidth ();
+win_height			         	= Window.GetHeight ();
+// win_width					= Window.GetWidth ();
+// win_height					= Window.GetHeight ();
+ww_half						= win_width / 2;
+wh_half						= win_height / 2;
+
+offset						= 0; // win_height / -4;
+
+// Planet Aura
+
+planet_aura.image			= Image ("planet_aura.png");
+planet_aura.size_ratio		= planet_aura.image.GetWidth() / win_width;
+planet_aura.new_height		= planet_aura.image.GetHeight() / planet_aura.size_ratio;
+planet_aura.scaled_image	= planet_aura.image.Scale (win_width, planet_aura.new_height);
+planet_aura.sprite			= Sprite (planet_aura.scaled_image);
+planet_aura.start			= 0;
+planet_aura.end				= 1;
+
+planet_aura.sprite.SetY ((win_height - planet_aura.new_height));
+planet_aura.sprite.SetOpacity (1);
+
+// To do: Retrofit this to suit all
+size_ratio					= planet_aura.image.GetWidth() / win_width; // planet_aura.size_ratio
+
+// Sun Glow
+
+sun_glow.image				= Image ("sun_glow.png");
+sun_glow.new_width			= sun_glow.image.GetWidth() / size_ratio;
+sun_glow.new_height			= sun_glow.image.GetHeight() / size_ratio;
+sun_glow.scaled_image		= sun_glow.image.Scale (sun_glow.new_width, sun_glow.new_height);
+sun_glow.x					= ww_half - (sun_glow.new_width / 2);
+sun_glow.y					= ((wh_half / 2) - (sun_glow.new_height / 2));
+sun_glow.sprite				= Sprite (sun_glow.scaled_image);
+sun_glow.start				= 0.2;
+sun_glow.end				= 1.0; // 0.4 - Doesn't Like Decimal
+sun_glow.anim_start			= 0.2;
+sun_glow.anim_end			= 0.8; // 0.8 - Doesn't like Decimal
+
+sun_glow.start_pos			= (wh_half - (sun_glow.new_height / 4)) + offset;
+sun_glow.end_pos			= (wh_half / 2) - (sun_glow.new_height / 2);
+
+//distro_logo.x				= ww_half - (distro_logo.width / 2);
+//distro_logo.y				= (wh_half / 2) - (distro_logo.new_height / 2);
+
+sun_glow.sprite.SetX (sun_glow.x);
+sun_glow.sprite.SetY (sun_glow.y);
+
+//sun_glow.sprite.SetX (ww_half - (new_height / 2));
+//sun_glow.sprite.SetY (wh_half + offset);
+
+sun_glow.sprite.SetOpacity (0); // 0.4 / 0
+
+
+// Planet Black
+
+planet_black.image			= Image ("planet_black.png");
+planet_black.size_ratio		= planet_black.image.GetWidth() / win_width;
+planet_black.new_height		= planet_black.image.GetHeight() / planet_black.size_ratio;
+planet_black.scaled_image	= planet_black.image.Scale (win_width, planet_black.new_height);
+planet_black.sprite			= Sprite (planet_black.scaled_image);
+
+///planet_black.sprite.SetY (wh_half + offset);
+planet_black.sprite.SetY ((win_height - planet_black.new_height));
+planet_black.sprite.SetOpacity (1); // 1
+
+
+// Planet Shine
+
+planet_shine.image			= Image ("planet_shine.png");
+planet_black.size_ratio		= planet_shine.image.GetWidth() / win_width;
+planet_shine.new_height		= planet_shine.image.GetHeight() / planet_shine.size_ratio;
+planet_shine.scaled_image	= planet_shine.image.Scale (win_width, planet_shine.new_height);
+planet_shine.sprite			= Sprite (planet_shine.scaled_image);
+planet_shine.start			= 0.2;
+planet_shine.end			= 1; // 0.6 - Doesn't Like Decimal
+
+// planet_shine.sprite.SetY ((wh_half + offset) - 2);
+planet_shine.sprite.SetY ((win_height - planet_shine.new_height));
+planet_shine.sprite.SetOpacity (0); // 0.6 / 0
+
+
+// Distro Logo
+
+distro_logo.image			= Image ("distro_logo.png");
+distro_logo.width			= distro_logo.image.GetWidth() / size_ratio;
+distro_logo.height			= distro_logo.image.GetHeight() / size_ratio;
+distro_logo.image			= distro_logo.image.Scale (distro_logo.width, distro_logo.height);
+distro_logo.x				= ww_half - (distro_logo.width / 2);
+distro_logo.y				= (wh_half / 2) - (distro_logo.height / 2);
+distro_logo.sprite			= Sprite (distro_logo.image);
+distro_logo.start			= 0;
+distro_logo.end				= 1;
+
+distro_logo.sprite.SetX (distro_logo.x);
+distro_logo.sprite.SetY (distro_logo.y);
+distro_logo.sprite.SetOpacity (1);
+
+
+// Distro Name
+
+distro_name.image			= Image ("distro_name.png");
+distro_name.width			= distro_name.image.GetWidth() / size_ratio;
+distro_name.height			= distro_name.image.GetHeight() / size_ratio;
+distro_name.image			= distro_name.image.Scale (distro_name.width, distro_name.height);
+distro_name.x				= ww_half - (distro_name.width / 2);
+distro_name.y				= win_height - (distro_name.height * 2);
+distro_name.sprite			= Sprite (distro_name.image);
+distro_name.start			= 0.8;
+distro_name.end				= 1;
+
+distro_name.sprite.SetX (distro_name.x);
+distro_name.sprite.SetY (distro_name.y);
+distro_name.sprite.SetOpacity (0); // 0
+
+// Function for Animation and Opacity Steps?
+fun remap (val, imin, imax, omin, omax) {
+	return (((val - imin) / (imax - imin)) * (omax - omin)) + omin;
+}
+
+// Callback Function
+fun progress_callback (d, p) {
+	
+	p = (p * 100.0) / 15.0;
+	
+	// Planet Aura Opacity
+	if (p >= planet_aura.start && p <= planet_aura.end) {
+		a = remap (p, planet_aura.start, planet_aura.end, 0, 1);
+		planet_aura.sprite.SetOpacity (a);
+	}
+	
+	// Sun Aura Opacity
+	if (p >= sun_glow.start && p <= sun_glow.end) {
+		a = remap (p, sun_glow.start, sun_glow.end, 0, 1);
+		sun_glow.sprite.SetOpacity (a);
+	}
+	
+	// Sun Glow Animation Y
+	if (p >= sun_glow.anim_start && p <= sun_glow.anim_end) {
+		a = remap (p, sun_glow.anim_start, sun_glow.anim_end, 0, 1);
+		b = sun_glow.start_pos - ((sun_glow.start_pos - sun_glow.end_pos) * a);
+		sun_glow.sprite.SetY (b);
+	}
+	
+	// Planet Shine Opacity
+	if (p >= planet_shine.start && p <= planet_shine.end) {
+		a = remap (p, planet_shine.start, planet_shine.end, 0, 1);
+		planet_shine.sprite.SetOpacity (a);
+	}
+	
+	// Distro Logo Rotate?
+	//if (p >= distro_logo.start && p <= distro_logo.end) {
+	//	a = remap (p, distro_logo.start, distro_logo.end, 0.5, 1);
+	//	b = Math.Pi * a;
+	//	distro_logo.sprite.SetImage (distro_logo.image.Rotate(b));
+	//}
+	
+	// Distro Logo Opacity
+	if (p >= distro_logo.start && p <= distro_logo.end) {
+		a = remap (p, distro_logo.start, distro_logo.end, 0, 1);
+		distro_logo.sprite.SetOpacity (a);
+	}
+	
+	// Distro Name Opacity
+	if (p >= distro_name.start && p <= distro_name.end) {
+		a = remap (p, distro_name.start, distro_name.end, 0, 1);
+		distro_name.sprite.SetOpacity (a);
+	}
+}
+
+// Let's Begin
+Plymouth.SetBootProgressFunction(progress_callback);
