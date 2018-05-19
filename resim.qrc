@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="resim">
+    <file>calamares.png</file>
+  </qresource>
+</RCC>
