@@ -44,7 +44,7 @@
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap>../../../../usr/share/plymouth/themes/Aylinux-Gunes/Aylinux-Gunes.png</pixmap>
+    <pixmap>/usr/share/plymouth/themes/Aylinux-Gunes/Aylinux-Gunes.png</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
