@@ -21,7 +21,7 @@ MainWindow::MainWindow(QWidget *parent) :
     QIcon simge("/usr/share/aylinux-plymouth/aylinux.png");
     temalar = yolum.entryList();
     QListWidgetItem *deneme=new QListWidgetItem();
-    deneme->setIcon(QIcon("/usr/share/aylinux-plymouth/aylinux.png"));
+    deneme->setIcon(QIcon("/usr/share/aylinux-plymouth/resimler/aylinux.png"));
 //    ui->listWidget->addItems(deneme);
 
     // Add an item to list widget.
@@ -46,7 +46,7 @@ void MainWindow::on_listelebuton_clicked()
     temalar = yolum.entryList();
     ui->listWidget->clear();
     ui->listWidget->addItems(temalar);
-    ui->label_5->setPixmap(QPixmap("/usr/share/aylinux-plymouth/bilgi.png"));
+    ui->label_5->setPixmap(QPixmap("/usr/share/aylinux-plymouth/resimler/bilgi.png"));
     QMessageBox::information(this, "Aylinux Plymouth","Tema listesi güncellendi.");
 }
 
@@ -120,7 +120,7 @@ void MainWindow::on_listWidget_itemSelectionChanged()
 
 if(!resimyokmu.exists())
 {
-    ui->label_5->setPixmap(QPixmap("/usr/share/aylinux-plymouth/resimyok.png"));
+    ui->label_5->setPixmap(QPixmap("/usr/share/aylinux-plymouth/resimler/resimyok.png"));
 }
     else
 {
