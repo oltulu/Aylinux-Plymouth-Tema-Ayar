@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=Aylinux-Uzay
+Description=This theme is a template to build on
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/Aylinux-Uzay
+ScriptFile=/usr/share/plymouth/themes/Aylinux-Uzay/Aylinux-Uzay.script
