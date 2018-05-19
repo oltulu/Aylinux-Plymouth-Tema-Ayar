@@ -36,7 +36,7 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>/usr/share/plymouth/archlinux.png</normaloff>/usr/share/plymouth/archlinux.png</iconset>
+    <normaloff>/usr/share/aylinux-plymouth/resimler/archlinux.png</normaloff>/usr/share/aylinux-plymouth/resimler/archlinux.png</iconset>
   </property>
   <property name="windowOpacity">
    <double>4.000000000000000</double>
